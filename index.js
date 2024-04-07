@@ -7,6 +7,8 @@ const jwt = require("jsonwebtoken");
 
 const connectDB = require("./src/db/connectDB");
 
+const doctorRoutes = require("./src/routes/doctorRoutes");
+
 // middleware
 app.use(
   cors({
@@ -19,10 +21,13 @@ app.use(express.json());
 // connect to db
 connectDB();
 
+// doctor routes
+app.use("/doctors", doctorRoutes);
+
 app.get("/", (req, res) => {
   res.send("Dochub server is running");
 });
 
 app.listen(port, () => {
-    console.log("server is running on port: ", port);
-})
+  console.log("server is running on port: ", port);
+});
