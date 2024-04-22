@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const connectDB = require("./src/db/connectDB");
 
 const doctorRoutes = require("./src/routes/doctorRoutes");
+const userRoutes = require("./src/routes/userRoutes");
 
 // middleware
 app.use(
@@ -23,6 +24,9 @@ connectDB();
 
 // doctor routes
 app.use("/doctors", doctorRoutes);
+
+// user routes
+app.use("/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Dochub server is running");
