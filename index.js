@@ -9,6 +9,7 @@ const connectDB = require("./src/db/connectDB");
 
 const doctorRoutes = require("./src/routes/doctorRoutes");
 const userRoutes = require("./src/routes/userRoutes");
+const appointmentRoutes = require("./src/routes/appointmentRoutes");
 
 // middleware
 app.use(
@@ -27,6 +28,9 @@ app.use("/doctors", doctorRoutes);
 
 // user routes
 app.use("/users", userRoutes);
+
+// appointment routes
+app.use("/appointments", appointmentRoutes);
 
 app.get("/", (req, res) => {
   res.send("Dochub server is running");
